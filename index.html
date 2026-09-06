@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشغل IPTV احترافي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- الرأس -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-tv"></i> مشغل IPTV احترافي</h1>
+                <p>قنوات عالمية | جودات متعددة | بث مباشر</p>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- قسم المشغل -->
+            <section class="player-section">
+                <div class="video-container">
+                    <video id="videoPlayer" controls>
+                        <source src="" type="application/x-mpegURL">
+                        متصفحك لا يدعم مشغل الفيديو
+                    </video>
+                    <div class="player-controls">
+                        <button id="fullscreenBtn" class="control-btn" title="ملء الشاشة">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button id="qualityBtn" class="control-btn" title="جودة التشغيل">
+                            <i class="fas fa-cog"></i>
+                            <span id="qualityText">عالية</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- معلومات القناة -->
+                <div class="channel-info">
+                    <h2 id="channelName">اختر قناة</h2>
+                    <p id="channelCategory">الفئة: غير محدد</p>
+                    <div class="channel-stats">
+                        <span><i class="fas fa-signal"></i> <span id="quality-status">بدء التشغيل...</span></span>
+                        <span><i class="fas fa-clock"></i> <span id="duration">00:00</span></span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-wrapper">
+                <!-- قسم البحث والفلترة -->
+                <aside class="sidebar">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="ابحث عن قناة...">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                    <!-- الفئات -->
+                    <div class="categories">
+                        <h3><i class="fas fa-list"></i> الفئات</h3>
+                        <button class="category-btn active" data-category="all">جميع القنوات</button>
+                        <button class="category-btn" data-category="sports">رياضة</button>
+                        <button class="category-btn" data-category="movies">أفلام</button>
+                        <button class="category-btn" data-category="news">أخبار</button>
+                        <button class="category-btn" data-category="music">موسيقى</button>
+                        <button class="category-btn" data-category="kids">أطفال</button>
+                        <button class="category-btn" data-category="arabic">عربي</button>
+                        <button class="category-btn" data-category="international">عالمي</button>
+                    </div>
+
+                    <!-- الجودات ��لمتاحة -->
+                    <div class="quality-settings">
+                        <h3><i class="fas fa-video"></i> الجودة</h3>
+                        <label><input type="radio" name="quality" value="720" checked> 720p</label>
+                        <label><input type="radio" name="quality" value="480"> 480p</label>
+                        <label><input type="radio" name="quality" value="360"> 360p</label>
+                        <label><input type="radio" name="quality" value="240"> 240p</label>
+                        <label><input type="radio" name="quality" value="auto"> تلقائي</label>
+                    </div>
+
+                    <!-- إضافة روابط مخصصة -->
+                    <div class="custom-links">
+                        <h3><i class="fas fa-link"></i> روابط مخصصة</h3>
+                        <input type="text" id="customUrl" placeholder="أدخل رابط البث">
+                        <input type="text" id="customName" placeholder="اسم القناة">
+                        <select id="customCategory">
+                            <option value="custom">مخصص</option>
+                            <option value="sports">رياضة</option>
+                            <option value="movies">أفلام</option>
+                            <option value="news">أخبار</option>
+                        </select>
+                        <button id="addCustomBtn" class="add-btn">
+                            <i class="fas fa-plus"></i> إضافة
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- قائمة القنوات -->
+                <main class="channels-section">
+                    <div class="channels-header">
+                        <h3>القنوات المتاحة</h3>
+                        <span id="channelCount">0</span>
+                    </div>
+                    <div id="channelsList" class="channels-grid">
+                        <!-- ستتم ملؤها ديناميكياً -->
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- نموذج المفضلة -->
+        <section class="favorites-section">
+            <h3><i class="fas fa-star"></i> المفضلة</h3>
+            <div id="favoritesList" class="favorites-grid">
+                <p class="empty-msg">لا توجد قنوات مفضلة بعد</p>
+            </div>
+        </section>
+
+        <!-- التذييل -->
+        <footer class="footer">
+            <p>© 2024 مشغل IPTV احترافي | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <script src="channels.js"></script>
+    <script src="player.js"></script>
+</body>
+</html>
